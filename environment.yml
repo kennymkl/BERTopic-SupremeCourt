@@ -10,6 +10,6 @@ dependencies:
   - pytorch=*=*cuda*
   - jupyterlab
   - pip
-  - pip:
-      - bertopic[sentence-transformers]
-      - streamlit
+  - bertopic
+  - sentence-transformers
+  - streamlit

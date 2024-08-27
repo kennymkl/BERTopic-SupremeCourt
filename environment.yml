@@ -9,5 +9,7 @@ dependencies:
   - cudatoolkit>=12.0,<=12.5
   - pytorch=*=*cuda*
   - jupyterlab
-  - bertopic
-  - streamlit
+  - pip
+  - pip:
+      - bertopic
+      - streamlit

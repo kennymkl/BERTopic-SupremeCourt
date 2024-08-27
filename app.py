@@ -1,6 +1,8 @@
+import os
 import streamlit as st
-import sys
-import subprocess
+
+# Add local bin to PATH
+os.environ['PATH'] += os.pathsep + os.path.expanduser('~/.local/bin')
 
 def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])

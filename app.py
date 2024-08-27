@@ -21,7 +21,15 @@ try:
 except ImportError:
     st.write("BERTopic not found. Attempting to install...")
     try:
+        # Ensure the correct version of NumPy is installed first
+        st.write("Installing compatible NumPy version...")
+        install('numpy==2.0.2')
+        
+        # Now install BERTopic
+        st.write("Installing BERTopic...")
         install('bertopic')
+        
+        # Try importing BERTopic again
         from bertopic import BERTopic
         st.write("BERTopic has been successfully installed and imported.")
     except Exception as e:

@@ -28,12 +28,12 @@ except ImportError:
     st.write("BERTopic not found. Attempting to install...")
     try:
         # Uninstall the current NumPy version
-        # st.write("Uninstalling incompatible NumPy version...")
-        # uninstall('numpy')
+        st.write("Uninstalling incompatible NumPy version...")
+        uninstall('numpy')
 
         # Install the compatible NumPy version
-        # st.write("Installing compatible NumPy version...")
-        # install('numpy==2.0.2')
+        st.write("Installing compatible NumPy version...")
+        install('numpy==2.0.2')
 
         # Now install BERTopic
         st.write("Installing BERTopic...")
@@ -49,9 +49,9 @@ except ImportError:
 
 import pandas as pd
 import numpy as np
-# from sklearn.feature_extraction.text import CountVectorizer
-# from cuml.cluster import HDBSCAN
-# from cuml.manifold import UMAP
+from sklearn.feature_extraction.text import CountVectorizer
+from cuml.cluster import HDBSCAN
+from cuml.manifold import UMAP
 import os
 import json
 
@@ -94,30 +94,30 @@ def main():
             st.write(topic_model.get_topic(similar_topics[i]))
 
         # Visualization of similar topics
-        # st.subheader("Visualization of Similar Topics")
+        st.subheader("Visualization of Similar Topics")
         
-        # umap_model = UMAP(n_neighbors=2, n_components=2, metric="cosine", random_state=42)
-        # topic_embeddings = topic_model.topic_embeddings_[similar_topics]
-        # reduced_embeddings = umap_model.fit_transform(topic_embeddings)
+        umap_model = UMAP(n_neighbors=2, n_components=2, metric="cosine", random_state=42)
+        topic_embeddings = topic_model.topic_embeddings_[similar_topics]
+        reduced_embeddings = umap_model.fit_transform(topic_embeddings)
 
-        # df = pd.DataFrame({
-        #     'x': reduced_embeddings[:, 0],
-        #     'y': reduced_embeddings[:, 1],
-        #     'topic': [f'Topic {i}' for i in similar_topics]
-        # })
+        df = pd.DataFrame({
+            'x': reduced_embeddings[:, 0],
+            'y': reduced_embeddings[:, 1],
+            'topic': [f'Topic {i}' for i in similar_topics]
+        })
 
-        # # Plotly scatter plot
-        # st.plotly_chart({
-        #     'data': [{
-        #         'x': df['x'],
-        #         'y': df['y'],
-        #         'mode': 'markers+text',
-        #         'marker': {'size': 10},
-        #         'text': df['topic'],
-        #         'textposition': 'top center'
-        #     }],
-        #     'layout': {'title': 'UMAP Visualization of Similar Topics'}
-        # })
+        # Plotly scatter plot
+        st.plotly_chart({
+            'data': [{
+                'x': df['x'],
+                'y': df['y'],
+                'mode': 'markers+text',
+                'marker': {'size': 10},
+                'text': df['topic'],
+                'textposition': 'top center'
+            }],
+            'layout': {'title': 'UMAP Visualization of Similar Topics'}
+        })
     
 if __name__ == "__main__":
     main()

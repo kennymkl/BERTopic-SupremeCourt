@@ -13,12 +13,6 @@ def install(package):
     except subprocess.CalledProcessError as e:
         st.error(f"Failed to install {package}: {e.output.decode()}")
 
-def uninstall(package):
-    try:
-        subprocess.check_call([sys.executable, "-m", "pip", "uninstall", "-y", package], stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError as e:
-        st.error(f"Failed to uninstall {package}: {e.output.decode()}")
-
 st.write("Checking for BERTopic...")
 
 try:
@@ -27,18 +21,14 @@ try:
 except ImportError:
     st.write("BERTopic not found. Attempting to install...")
     try:
-        # Uninstall the current NumPy version
-        st.write("Uninstalling incompatible NumPy version...")
-        uninstall('numpy')
-
-        # Install the compatible NumPy version
+        # Ensure the correct version of NumPy is installed first
         st.write("Installing compatible NumPy version...")
         install('numpy==2.0.2')
-
+        
         # Now install BERTopic
         st.write("Installing BERTopic...")
         install('bertopic')
-
+        
         # Try importing BERTopic again
         from bertopic import BERTopic
         st.write("BERTopic has been successfully installed and imported.")

@@ -7,8 +7,6 @@ channels:
 dependencies:
   - rapids=24.08
   - python=3.11
-  - numpy=2.0.2
-  - numba=0.60.0
   - cudatoolkit>=12.0,<=12.5
   - pytorch=*=*cuda*
   - jupyterlab

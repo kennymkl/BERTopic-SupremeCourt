@@ -1,5 +1,7 @@
 import os
 import streamlit as st
+import subprocess
+import sys
 
 # Add local bin to PATH
 os.environ['PATH'] += os.pathsep + os.path.expanduser('~/.local/bin')

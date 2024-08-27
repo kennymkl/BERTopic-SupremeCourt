@@ -1,0 +1,11 @@
+name: rapids-24.08
+channels:
+  - rapidsai
+  - conda-forge
+  - nvidia
+dependencies:
+  - rapids=24.08
+  - python=3.11
+  - cudatoolkit>=12.0,<=12.5
+  - pytorch=*=*cuda*
+  - jupyterlab

@@ -1,15 +1,2 @@
 bertopic
 streamlit
-# Install RAPIDS AI packages using the NVIDIA PyPI repository
-# Make sure to use --extra-index-url=https://pypi.nvidia.com when installing
-cudf-cu12==24.8.*
-dask-cudf-cu12==24.8.*
-cuml-cu12==24.8.*
-cugraph-cu12==24.8.*
-cuspatial-cu12==24.8.*
-cuproj-cu12==24.8.*
-cuxfilter-cu12==24.8.*
-cucim-cu12==24.8.*
-pylibraft-cu12==24.8.*
-raft-dask-cu12==24.8.*
-cuvs-cu12==24.8.*

@@ -11,5 +11,5 @@ dependencies:
   - jupyterlab
   - pip
   - pip:
-      - bertopic
+      - bertopic[sentence-transformers]
       - streamlit

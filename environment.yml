@@ -3,6 +3,7 @@ channels:
   - rapidsai
   - conda-forge
   - nvidia
+  - defaults
 dependencies:
   - rapids=24.08
   - python=3.11

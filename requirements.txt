@@ -1,2 +1,0 @@
-bertopic[sentence-transformers]==0.16.3
-streamlit

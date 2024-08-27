@@ -6,7 +6,7 @@ dependencies:
   - python=3.11
   - numpy=2.0.0
   - numba=0.60.0
-  # - pytorch=*=*cpu*
+  - pytorch=*=*cpu*
   - pip
   - streamlit
   - sentence-transformers

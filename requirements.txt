@@ -1,2 +1,4 @@
 bertopic[sentence-transformers]==0.16.3
 streamlit
+os-sys
+subprocess-run

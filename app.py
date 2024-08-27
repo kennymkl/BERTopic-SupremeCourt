@@ -3,15 +3,11 @@ import streamlit as st
 import subprocess
 import sys
 
-# Ensure local bin and site-packages are in the PATH and PYTHONPATH
+# Add local bin to PATH
 os.environ['PATH'] += os.pathsep + os.path.expanduser('~/.local/bin')
-sys.path.append('/home/appuser/.local/lib/python3.11/site-packages')
 
 def install(package):
-    try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package], stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError as e:
-        st.error(f"Failed to install {package}: {e.output.decode()}")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 st.write("Checking for BERTopic...")
 

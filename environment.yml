@@ -14,5 +14,3 @@ dependencies:
   - bertopic
   - sentence-transformers
   - streamlit
-  - os-sys
-  - subprocess-run

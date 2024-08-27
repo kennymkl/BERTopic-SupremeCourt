@@ -1,26 +1,5 @@
 import streamlit as st
-import sys
-import subprocess
-
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-st.write("Checking for BERTopic...")
-
-try:
-    from bertopic import BERTopic
-    st.write("BERTopic is already installed.")
-except ImportError:
-    st.write("BERTopic not found. Attempting to install...")
-    try:
-        install('bertopic')
-        from bertopic import BERTopic
-        st.write("BERTopic has been successfully installed and imported.")
-    except Exception as e:
-        st.error(f"Failed to install BERTopic: {e}")
-        st.stop()
-
-
+from bertopic import BERTopic
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
